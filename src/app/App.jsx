@@ -1,20 +1,39 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadHotPosts, selectPosts } from './appSlice';
-
+import { useSelector } from 'react-redux'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Home } from '../features/home/Home'
+import { PageNotFound } from '../features/pageNotFound/pageNotFound'
+import { SearchResults } from '../features/searchResults/searchResults'
+import { Subreddit } from '../features/subreddit/subreddit'
+import { SubredditAside } from '../features/subredditsAside/subredditAside'
 
 function App() {
 
-  const posts = useSelector(selectPosts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadHotPosts())
-  }, [])
-
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <div className="App">
+
+        <div>HEADER</div>
+
+        <main>
+        
+          <Routes>
+            <Route path='/' exact element={<Home/>}/>
+            <Route path='/r/:id' exact element={<Subreddit/>}/>
+            <Route path='/search/:id' exact element={<SearchResults/>}/>
+            <Route exact elementt={<PageNotFound/>}/>
+          </Routes>
+
+        </main>
+
+        <aside>
+
+          <SubredditAside />
+          
+        </aside>
+
+      </div>
+    </Router>
   )
 }
 
