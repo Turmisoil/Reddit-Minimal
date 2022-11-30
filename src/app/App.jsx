@@ -5,8 +5,8 @@ import { Header } from '../features/header/Header'
 import { Home } from '../features/home/Home'
 import { PageNotFound } from '../features/pageNotFound/pageNotFound'
 import { SearchResults } from '../features/searchResults/searchResults'
-import { Subreddit } from '../features/subreddit/subreddit'
 import { SubredditAside } from '../features/subredditAside/SubredditAside'
+import { Subreddit } from '../features/subreddit/Subreddit';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
         
           <Routes>
             <Route path='/' exact element={<Home/>}/>
-            <Route path='/r/:id' exact element={<Subreddit/>}/>
+            <Route path='/r/:id' exact element={<Subreddit />}/>
             <Route path='/search/:id' exact element={<SearchResults/>}/>
             <Route exact elementt={<PageNotFound/>}/>
           </Routes>
