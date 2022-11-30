@@ -36,4 +36,5 @@ export const appSlice = createSlice({
 })
 
 export const selectPosts = state => state.app.posts;
+export const selectIsLoading = state => state.app.isLoading;
 export default appSlice.reducer;
