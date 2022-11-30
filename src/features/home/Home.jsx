@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadHotPosts, selectIsLoading, selectPosts } from "../../app/appSlice";
+import { loadHotPosts, loadTopPosts, selectIsLoading, selectPosts } from "../../app/appSlice";
 import { Loader } from "../../components/Loader";
 import { About } from "../about/About";
 import { Filter } from "../filter/Filter";
@@ -13,7 +13,7 @@ export const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadHotPosts())
+        dispatch(loadHotPosts());
     }, [])
 
     return(
